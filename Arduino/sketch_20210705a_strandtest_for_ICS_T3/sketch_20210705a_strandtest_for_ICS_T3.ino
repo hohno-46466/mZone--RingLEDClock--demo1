@@ -9,6 +9,7 @@
 
 #define SKETCH_INFO "hohno-MBP-2016B/sketch_20210705a_strandtest_for_ICS_T3"
 #define SKETCH_DATE "2021-07-11 20:50:58 JST"
+#define SKETCH_MEMO "(no memo now)"
 
 // ---------------------------------------------------------
 
@@ -67,6 +68,7 @@ void setup() {
 	Serial.println();
 	Serial.print("# "); Serial.println(SKETCH_INFO);
 	Serial.print("# "); Serial.println(SKETCH_DATE);
+	Serial.print("# "); Serial.println(SKETCH_MEMO);
 	Serial.println();
 
   strip.begin();
@@ -78,12 +80,12 @@ void setup() {
 // ---------------------------------------------------------
 
 boolean updateOffset(int32_t *tp) {
-	boolean flag = false;
+	boolean flag;
 	String myStr = Serial.readStringUntil('\n');
 	Serial.print("[");		Serial.print(myStr);		Serial.println("]");
 	int32_t offset = *tp;
 
-
+flag = false;
 
 	if (myStr.compareTo("F") == 0) {
 		Serial.println("(F)");
@@ -103,7 +105,7 @@ boolean updateOffset(int32_t *tp) {
 		flag = true;
 	} else {
 		myStr.getBytes(buff, MINIBUFFSIZE);
-		Serial.print("{");		Serial.print((char *)buff);		Serial.println("}");
+		// Serial.print("{");		Serial.print((char *)buff);		Serial.println("}");
 		uint32_t xVal = 0;
 		if (sscanf((char *)buff, "%lu", &xVal) > 0) {
 			if (xVal > 0) {
