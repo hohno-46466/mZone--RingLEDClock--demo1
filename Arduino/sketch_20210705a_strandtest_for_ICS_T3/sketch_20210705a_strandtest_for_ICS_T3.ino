@@ -8,7 +8,7 @@
 // Arduino/workspace/CommonWorkArea/hohno-MBP-2016B/sketch_20210705a_strandtest_for_ICS_T3
 
 #define SKETCH_INFO "hohno-MBP-2016B/sketch_20210705a_strandtest_for_ICS_T3"
-#define SKETCH_DATE "2021-07-11 20:50:58 JST"
+#define SKETCH_DATE "2021-07-12 09:47:58 JST"
 #define SKETCH_MEMO "(no memo now)"
 
 // ---------------------------------------------------------
