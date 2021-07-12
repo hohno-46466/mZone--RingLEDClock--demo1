@@ -64,7 +64,7 @@ void setup() {
   // End of trinket special code
 
 	Serial.begin(57600);
-	Serial.setTimeout(10);
+	Serial.setTimeout(20);
 	Serial.println();
 	Serial.print("# "); Serial.println(SKETCH_INFO);
 	Serial.print("# "); Serial.println(SKETCH_DATE);
