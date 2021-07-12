@@ -13,7 +13,7 @@
 
 // ---------------------------------------------------------
 
-#define UNIXTIME_SEC	(1625873723 + 15)
+#define UNIXTIME_SEC	(1626077213 + 15)
 #define TIMEZONE_SEC	(32400L)
 
 #include <Adafruit_NeoPixel.h>
@@ -109,16 +109,21 @@ flag = false;
 		uint32_t xVal = 0;
 		if (sscanf((char *)buff, "%lu", &xVal) > 0) {
 			if (xVal > 0) {
-				Serial.print("("); Serial.print(xVal); Serial.print(") -> ");
-				int th = (xVal / 10000) % 100;
-				int tm = (xVal % 10000) / 100;
-				int ts = (xVal % 100);
-				Serial.print("("); Serial.print(th); Serial.print(")");
-				Serial.print("("); Serial.print(tm); Serial.print(")");
-				Serial.print("("); Serial.print(ts); Serial.println(")");
-				offset = (th * 3600L + tm * 60L + ts) * 10;	// unit: 100msec
-				offset -= (millis() / 100);	 // unit: 100msec
-				flag = true;
+				if ((xVal >= 9000000L) && (xVal <= 9235959L)) {
+					xVal -= 9000000L;
+					Serial.print("(OK)("); Serial.print(xVal); Serial.print(") -> ");
+					int th = (xVal / 10000) % 100;
+					int tm = (xVal % 10000) / 100;
+					int ts = (xVal % 100);
+					Serial.print("("); Serial.print(th); Serial.print(")");
+					Serial.print("("); Serial.print(tm); Serial.print(")");
+					Serial.print("("); Serial.print(ts); Serial.println(")");
+					offset = (th * 3600L + tm * 60L + ts) * 10;	// unit: 100msec
+					offset -= (millis() / 100);	 // unit: 100msec
+					flag = true;
+				} else {
+					Serial.print("[NG]("); Serial.print(xVal); Serial.println(")");
+				}
 			}
 		}
 	}
