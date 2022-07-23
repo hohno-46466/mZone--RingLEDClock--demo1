@@ -11,8 +11,8 @@
      
      3 directories, 4 files (Sun Jun  5 23:24:19 JST 2022)
 
-Note: 	url = https://github.com/hohno-46466/mZone--RingLEDClock--demo1
+Note: url = https://github.com/hohno-46466/mZone--RingLEDClock--demo1
 
-Note:   url = git@github.com:hohno-46466/mZone--RingLEDClock--demo1.git
+Note: url = git@github.com:hohno-46466/mZone--RingLEDClock--demo1.git
 
 -EOF-
